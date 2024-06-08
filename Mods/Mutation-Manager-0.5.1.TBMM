@@ -1,0 +1,5 @@
+url: https://github.com/fivebalesofhay/Mutation-Manager-0.5.1/raw/main/MutationManager.dll
+install: BepInEx
+version: 1
+game version: 0.5.1
+description: This mod lets you change the minimum mutation gene values and has a setting to multiply brain mutations to get extremely fast brain growth.
