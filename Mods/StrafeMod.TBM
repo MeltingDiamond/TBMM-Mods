@@ -1,5 +1,5 @@
 url: https://github.com/MeltingDiamond/Strafe-mod/raw/main/BibitesAssembly.dll
 install: replace
-version: 1
+version: 1.1
 game version: 0.5.1
-description: Adds Strafing output so the bibites can move sideways.
+description: Adds Strafing output so the bibites can move sideways. Saved bibites might be compatible with Einstein.
