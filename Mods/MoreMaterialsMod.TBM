@@ -2,4 +2,4 @@ url: https://github.com/fivebalesofhay/MoreMaterialsMod/raw/main/BibitesAssembly
 install: replace+
 version: 1.3
 description: This mod adds two new materials: fruit and wood. Wood is food for herbivores, and fruit is for omnivores, and is most effective at a diet value of 0.5.
-extra_files: folder:https://github.com/fivebalesofhay/MoreMaterialsMod/raw/main/Mods location:The Bibites_data/Managed/BibitesAssembly.dll
+extra_files: folder:https://github.com/fivebalesofhay/MoreMaterialsMod/raw/main/Mods location:root/The Bibites_data/Mods
