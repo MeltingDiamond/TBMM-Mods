@@ -1,0 +1,6 @@
+url: https://github.com/MeltingDiamond/Diet-Strength-and-Defence-nuron/raw/refs/heads/main/BibitesAssembly.dll
+install: replace
+version: 1
+game version: 0.5.1
+description: This adds 3 new inputs that get the diet, strength and defence from a bibite similar to the colour inputs (r,g,b)
+bibites: https://github.com/MeltingDiamond/Diet-Strength-and-Defence-nuron/raw/refs/heads/main/Basic%20Bibite%20Diet,%20Strength,%20Defence.bb8template
