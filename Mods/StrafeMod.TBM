@@ -4,3 +4,4 @@ version: 1.1
 game version: 0.5.1
 description: Adds Strafing output so the bibites can move sideways. Saved bibites are compatible with Einstein.
 bibites: https://github.com/MeltingDiamond/Strafe-mod/raw/refs/heads/main/Basic%20Bibite%20Strafe.bb8template
+original developer: MeltingDiamond
