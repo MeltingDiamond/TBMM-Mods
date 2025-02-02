@@ -3,3 +3,4 @@ install: BepInEx
 version: 1
 game version: 0.5.1
 description: This mod lets you change the minimum mutation gene values and has a setting to multiply brain mutations to get extremely fast brain growth.
+original developer: FiveBalesofHay
