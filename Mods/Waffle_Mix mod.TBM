@@ -1,0 +1,6 @@
+url: https://github.com/MeltingDiamond/Mod-For-Waffle_Mix/raw/refs/heads/main/Waffle_Mix%20mod.dll
+install: BepInEx
+version: 1.7
+game version: 0.6.0.1
+description: This is a BepInEx mod for The Bibites that changes the aging threshold to have a static global metabolic rate changes by a slider in the settings dynamic settings. This makes metabolic rate not change when a bibite starts getting aging penalties.
+original developer: MeltingDiamond
