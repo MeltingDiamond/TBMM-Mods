@@ -1,0 +1,7 @@
+url: https://github.com/benjaminmh71/MoreMaterialsMod/releases/download/v0.6.0/MoreMaterials.dll
+install: BepInEx+
+version: 0.6.0
+game version: 0.6.0
+description: This mod adds three new types of pellet to the game: Roots/Tubers, Fruits, and Fungus. These act functionally like plant pellets. Each new pellet has a specific ideal diet value at which it has maximum efficiency: 0.25, 0.5, and 0.75 respectively. The goal of this mod is to promote diversity among bibites by creating a more complex array of food sources, and to create a "pathway" for herbivores to easily transition into carnivores.
+extra_files: folder:https://github.com/benjaminmh71/MoreMaterialsMod/tree/main/Mods location:root/The Bibites_data/Mods
+original developer: FiveBalesofHay
