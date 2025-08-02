@@ -1,6 +1,0 @@
-url: https://github.com/fivebalesofhay/Advanced-Selector-0.5.1/raw/main/AdvancedSelector.dll
-install: BepInEx
-version: 1
-game version: 0.5.1
-description: A mod for using color selectors to kill bibites with certain gene ranges. Made with Bepinex. This mod was made using version 0.5.1. It may work on versions past 0.5.1, but it may not.
-original developer: FiveBalesofHay

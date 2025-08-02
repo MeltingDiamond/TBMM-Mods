@@ -1,6 +1,0 @@
-url: https://github.com/fivebalesofhay/Bepinex-Autotagger/raw/main/Autotagger.dll
-install: BepInEx
-version: 1
-game version: 0.5.1
-description: A mod for automatically tagging bibites by gene. Made with Bepinex. This mod was made using version 0.5.1. It will likely work on every version past 0.5.1, but it may not.
-original developer: FiveBalesofHay
