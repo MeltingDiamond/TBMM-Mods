@@ -7,5 +7,29 @@
 
 <body>
     <h1>Website for viewing the mods available in The Bibites Mod Manager<br>Website Work In Progress</h1>
+    <div id="data"></div>
+    <script>
+        const owner = 'MeltingDiamond'; // Replace with your GitHub username
+        const repo = 'TBMM-Mods'; // Replace with your repository name
+        const branch = 'main'; // Replace with the branch name
+        const filePath = 'Mods/WASDMod.TBM'; // Replace with the path to your data file
+
+        const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${filePath}`;
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Assuming the data is in JSON format
+            })
+            .then(data => {
+                // Process the data as needed
+                document.getElementById('data').innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    </script>
 </body>
 </html>
