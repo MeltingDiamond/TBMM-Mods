@@ -1,35 +1,84 @@
-<!doctype html>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>The Bibites Mods</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBMM Mods and Skins</title>
+    <style>
+        .folder, .file {
+            cursor: pointer;
+            margin: 5px 0;
+        }
+        .nested {
+            display: none;
+            margin-left: 20px;
+        }
+    </style>
 </head>
-
 <body>
-    <h1>Website for viewing the mods available in The Bibites Mod Manager<br>Website Work In Progress</h1>
-    <div id="data"></div>
+    <h1>TBMM Mods and Skins</h1>
+    <div id="content"></div>
+
     <script>
-        const owner = 'MeltingDiamond'; // Replace with your GitHub username
-        const repo = 'TBMM-Mods'; // Replace with your repository name
-        const branch = 'main'; // Replace with the branch name
-        const filePath = 'Mods/WASDMod.TBM'; // Replace with the path to your data file
+        const owner = 'MeltingDiamond'; // Your GitHub username
+        const repo = 'TBMM-Mods'; // Your repository name
+        const baseUrl = `https://api.github.com/repos/${owner}/${repo}/contents`;
 
-        const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${filePath}`;
+        function fetchContents(path) {
+            fetch(`${baseUrl}/${path}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    displayContents(data, path);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
 
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+        function displayContents(data, path) {
+            const contentDiv = document.getElementById('content');
+            const folderDiv = document.createElement('div');
+            folderDiv.classList.add('nested');
+
+            data.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add(item.type);
+                itemDiv.innerText = item.name;
+
+                if (item.type === 'dir') {
+                    itemDiv.onclick = () => {
+                        if (folderDiv.style.display === 'none') {
+                            folderDiv.style.display = 'block';
+                            fetchContents(item.path);
+                        } else {
+                            folderDiv.style.display = 'none';
+                        }
+                    };
+                } else if (item.type === 'file') {
+                    itemDiv.onclick = () => {
+                        fetch(item.download_url)
+                            .then(response => response.text())
+                            .then(text => {
+                                alert(`Contents of ${item.name}:\n\n${text}`);
+                            });
+                    };
                 }
-                return response.json(); // Assuming the data is in JSON format
-            })
-            .then(data => {
-                // Process the data as needed
-                document.getElementById('data').innerText = JSON.stringify(data, null, 2);
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
+
+                folderDiv.appendChild(itemDiv);
             });
+
+            contentDiv.appendChild(folderDiv);
+            folderDiv.style.display = 'none'; // Initially hide the folder contents
+        }
+
+        // Fetch the initial contents of the mods and skins folders
+        fetchContents('mods');
+        fetchContents('skins');
     </script>
 </body>
 </html>
