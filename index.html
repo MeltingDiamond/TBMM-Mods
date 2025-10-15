@@ -3,20 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TBMM Mods and Skins</title>
+    <title>The Bibites Mods and Skins</title>
     <style>
-        .folder, .file {
-            cursor: pointer;
-            margin: 5px 0;
-        }
-        .nested {
-            display: none;
-            margin-left: 20px;
+        .inline {
+            color:blueviolet;
+            display:inline;
         }
     </style>
 </head>
 <body>
-    <h1>TBMM Mods and Skins</h1>
-    <div id="content"></div>
+    <h1>The Bibites Mods and Skins</h1>
+    <p class = "inline">Here I will display the mods and skins that are available to download</p>
+    <div id="modReskinNamesList">
+    </div>
+    <script>
+        const items = document.createElement("ul");
+
+        async function fetchNames(url, endsWith) {
+            const response = await fetch(url);
+            if (response.ok) {
+                const contents = await response.json();
+                return contents
+                    .filter(item => item.name.endsWith(endsWith))
+                    .map(item => item.name);
+            }
+            return [];
+        }
+        
+        async function populateList() {
+            const modNames = await fetchNames("https://api.github.com/repos/MeltingDiamond/TBMM-Mods/contents/Mods", ".TBM");
+            const reskinNames = await fetchNames("https://api.github.com/repos/MeltingDiamond/TBMM-Mods/contents/Skins", ".TBS");
+            
+            const modsText = document.createElement('li');
+            modsText.innerText = "-MODS-";
+            items.appendChild(modsText);
+            
+            modNames.forEach(element => {
+                const item = document.createElement('li');
+                item.innerText = element;
+
+                items.appendChild(item);
+            });
+
+            const reskinText = document.createElement('li');
+            reskinText.innerText = "-MODS-";
+            items.appendChild(reskinText);
+
+            reskinNames.forEach(element => {
+                const item = document.createElement('li');
+                item.innerText = element;
+
+                items.appendChild(item);
+            })
+
+            document.getElementById("modReskinNamesList").appendChild(items);
+        }
+
+        populateList();
+</script>
 </body>
 </html>
