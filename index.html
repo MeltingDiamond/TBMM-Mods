@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Bibites Mods and Skins</title>
@@ -14,6 +15,7 @@
 <body>
     <h1>The Bibites Mods and Skins</h1>
     <p class = "inline">Here I will display the mods and skins that are available to download</p>
+    <p id="LatestVersion"></p>
     <div id="modReskinNamesList">
     </div>
     <script>
@@ -32,7 +34,13 @@
         
         async function populateList() {
             const modNames = await fetchNames("https://api.github.com/repos/MeltingDiamond/TBMM-Mods/contents/Mods", ".TBM");
+            if (!modNames.ok) {
+                throw new Error(`HTTP error! status: ${modNames.status}`);
+            }
             const reskinNames = await fetchNames("https://api.github.com/repos/MeltingDiamond/TBMM-Mods/contents/Skins", ".TBS");
+            if (!reskinNames.ok) {
+                throw new Error(`HTTP error! status: ${reskinNames.status}`);
+            }
             
             const modsText = document.createElement('li');
             modsText.innerText = "-MODS-";
@@ -59,6 +67,20 @@
             document.getElementById("modReskinNamesList").appendChild(items);
         }
 
+        async function GetVersion() {
+            const response = await fetch("https://api.github.com/repos/MeltingDiamond/The-Bibites-Downloads/contents/Link%20cache/Windows%2064x?ref=main");
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            const decodedData = atob(data.content);
+            const versions = JSON.parse(decodedData);
+            const versionKeys = Object.keys(versions);
+            
+            document.getElementById("LatestVersion").innerText = "The newest version might be" + versionKeys[0];;
+        }
+
+        GetVersion();
         populateList();
 </script>
 </body>
