@@ -2,6 +2,6 @@ url: https://github.com/MeltingDiamond/WASDMod/raw/main/BibitesAssembly.dll
 install: replace
 version: 1.1
 game version: 0.5.1
-description: This mod lets you control the bibites with the keyboard or the mouse.
+description: original WASD mod. This mod lets you control the bibites with the keyboard or the mouse.
 bibites: https://github.com/MeltingDiamond/WASDMod/raw/refs/heads/main/Bibites/Basic%20Bibite%20WASD%20mod.bb8template, https://github.com/MeltingDiamond/WASDMod/raw/refs/heads/main/Bibites/Scared.bb8template, https://github.com/MeltingDiamond/WASDMod/raw/refs/heads/main/Bibites/WASD%20mod%20Bibite.bb8template, https://github.com/MeltingDiamond/WASDMod/raw/refs/heads/main/Bibites/WASD%20mod%20Manual%20Bibite.bb8template
 original developer: MeltingDiamond
