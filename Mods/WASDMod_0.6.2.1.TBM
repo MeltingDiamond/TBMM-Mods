@@ -1,0 +1,6 @@
+url: https://github.com/MeltingDiamond/TBMM-Mods/raw/main/UploadedFiles/WASDMod0.6.2.1/BibitesAssembly.dll
+install: replace
+version: 0.1
+game version: 0.6.2.1
+description: (wip) WASD mod ported to 0.6.2.1. This mod lets you control the bibites with the arrow keys on the keyboard.
+original developer: MeltingDiamond
